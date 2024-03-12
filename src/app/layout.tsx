@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import "@mantine/core/styles.css";
+import { MantineProvider } from "@mantine/core";
+import { Nav } from "@/components/nav/nav";
+import StyledComponentsRegistry from "@/lib/registry";
+import { Footer } from "@/components/footer/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="overflow-x-hidden w-full h-screen bg-[#DFDFDF]">
+        <MantineProvider>
+          <StyledComponentsRegistry>
+            <Nav />
+            {children}
+            <Footer />
+          </StyledComponentsRegistry>
+        </MantineProvider>
+      </body>
     </html>
   );
 }
