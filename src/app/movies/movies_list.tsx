@@ -6,6 +6,7 @@ import { MoviePageWrapper } from "./movieStyles";
 import Link from "next/link";
 import { icons } from "@/lib/icons/icon";
 export const MoviesList = () => {
+
   const moviesList = useMoviesList();
   const [click, setClick] = React.useState(false);
 
